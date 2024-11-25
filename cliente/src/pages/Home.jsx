@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Registrar from "./Registro";
 
 export default function Home() {
 
@@ -18,7 +19,10 @@ export default function Home() {
   }, [])
 
   return (
+    <>
+    <Registrar/>
     <table>
+    <tbody>
       <tr>
         <td>Nome</td>
         <td>E-mail</td>
@@ -29,6 +33,8 @@ export default function Home() {
           <td>{usuario.email}</td>
         </tr>
       )}
+      </tbody>
     </table>
+    </>
   );
 }
