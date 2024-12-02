@@ -1,6 +1,9 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Registrar() {
+
+  const navigate = useNavigate()
 
   const [nome, setNome] = useState('')
   const [email, setEmail] = useState('')
@@ -16,6 +19,8 @@ export default function Registrar() {
           email: email
         })
       })
+      alert('Usuário Registrado!')
+      navigate('/')
     }catch{
       alert("Ocorreu um erro!")
     }
@@ -26,11 +31,15 @@ export default function Registrar() {
     <>
       <main>
         <form onSubmit={registrarUsuario}>
-          <label htmlFor="nome"></label>
+          <div>
+          <div>
+          <label htmlFor="nome">Nome:</label>
           <input name="nome" value= {nome} onChange={(event) => setNome(event.target.value)}></input>
-          <label htmlFor="email"></label>
+          <label htmlFor="email">E-mail:</label>
           <input name="email" value= {email} onChange={(event) => setEmail(event.target.value)}></input>
           <button>Registrar</button>
+          </div>
+          </div>
         </form>
       </main>
     </> 
