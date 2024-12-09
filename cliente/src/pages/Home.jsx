@@ -1,45 +1,25 @@
-import { useEffect, useState } from "react";
-import Remover from "./Remover";
+import { useNavigate } from "react-router-dom";
 import styles from "../styles/home.module.css";
 
 export default function Home() {
-  const [usuarios, setUsuarios] = useState([]);
-
-  useEffect(() => {
-    const buscarUsuario = async () => {
-      try {
-        const resposta = await fetch("http://localhost:3000/usuarios");
-        const dados = await resposta.json();
-        setUsuarios(dados);
-      } catch {
-        alert("Ocorreu um erro no app!");
-      }
-    };
-    buscarUsuario();
-  }, []);
+  const navigate = useNavigate();
 
   return (
     <div className={styles.container}>
-      <table>
-        <thead>
-          <tr>
-            <th>Nome</th>
-            <th>E-mail</th>
-            <th>Ações</th>
-          </tr>
-        </thead>
-        <tbody>
-          {usuarios.map((usuario) => (
-            <tr key={usuario.id}>
-              <td>{usuario.nome}</td>
-              <td>{usuario.email}</td>
-              <td>
-                <Remover usuario={usuario} />
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <h1 className={styles.title}>Bem-vindo ao nosso sistema!</h1>
+      <h2 className={styles.subtitle}>Ações:</h2>
+      <div className={styles.buttonContainer}>
+        <button 
+          onClick={() => navigate('/listar')} 
+          className={styles.button}>
+          Listar Usuários
+        </button>
+        <button 
+          onClick={() => navigate('/registro')} 
+          className={styles.button}>
+          Registrar Usuários
+        </button>
+      </div>
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-export default function Remover({ usuario }) {
+export default function Remover({ usuario, classe }) {
   const remover = async () => {
     try {
       await fetch(`http://localhost:3000/usuarios/${usuario.id}`, {
@@ -14,5 +14,5 @@ export default function Remover({ usuario }) {
     }
   };
 
-  return <button onClick={remover}>Remover</button>;
+  return <button onClick={remover} className={classe} >Remover</button>;
 }

@@ -24,20 +24,25 @@ export default function Registrar() {
 
   return (
     <div className={styles.container}>
-      <form onSubmit={registrarUsuario}>
-        <label htmlFor="nome">Nome:</label>
+      <button className={styles.backButton} onClick={() => navigate('/')}>
+        Voltar
+      </button>
+      <form onSubmit={registrarUsuario} className={styles.form}>
+        <label htmlFor="nome" className={styles.label}>Nome:</label>
         <input
           name="nome"
           value={nome}
           onChange={(event) => setNome(event.target.value)}
+          className={styles.input}
         />
-        <label htmlFor="email">E-mail:</label>
+        <label htmlFor="email" className={styles.label}>E-mail:</label>
         <input
           name="email"
           value={email}
           onChange={(event) => setEmail(event.target.value)}
+          className={styles.input}
         />
-        <button>Registrar</button>
+        <button className={styles.button}>Registrar</button>
       </form>
     </div>
   );
