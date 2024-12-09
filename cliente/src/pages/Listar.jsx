@@ -61,7 +61,7 @@ export default function Listar() {
               <td>{usuario.nome}</td>
               <td>{usuario.email}</td>
               <td>
-                <Remover usuario={usuario} classe={styles.remove}/>
+                <Remover usuario={usuario} classe={styles.remove} />
               </td>
             </tr>
           ))}

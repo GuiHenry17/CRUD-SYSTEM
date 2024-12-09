@@ -9,13 +9,13 @@ export default function Home() {
       <h1 className={styles.title}>Bem-vindo ao nosso sistema!</h1>
       <h2 className={styles.subtitle}>Ações:</h2>
       <div className={styles.buttonContainer}>
-        <button 
-          onClick={() => navigate('/listar')} 
+        <button
+          onClick={() => navigate('/listar')}
           className={styles.button}>
           Listar Usuários
         </button>
-        <button 
-          onClick={() => navigate('/registro')} 
+        <button
+          onClick={() => navigate('/registro')}
           className={styles.button}>
           Registrar Usuários
         </button>
