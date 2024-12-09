@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>Bem-vindo ao nosso sistema!</h1>
-      <h2 className={styles.subtitle}>Ações:</h2>
+      <h2>Ações:</h2>
       <div className={styles.buttonContainer}>
         <button
           onClick={() => navigate('/listar')}
