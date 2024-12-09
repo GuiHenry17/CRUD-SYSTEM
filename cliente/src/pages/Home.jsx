@@ -1,20 +1,9 @@
 import { useEffect, useState } from "react";
+import Remover from "./Remover";
+import styles from "../styles/home.module.css";
 
 export default function Home() {
-
   const [usuarios, setUsuarios] = useState([]);
-
-  const remover = async (pessoa) => {
-    try{
-      await fetch(`http://localhost:3000/usuarios/${pessoa.id}`, {
-        method: 'DELETE'
-      })
-      location.reload()
-    }catch (error){
-      console.log(error)
-      alert(`Erro ocorrido! ${error}`)
-    }
-  }
 
   useEffect(() => {
     const buscarUsuario = async () => {
@@ -23,29 +12,34 @@ export default function Home() {
         const dados = await resposta.json();
         setUsuarios(dados);
       } catch {
-        alert('Ocorreu um erro no app!');
+        alert("Ocorreu um erro no app!");
       }
-    }
+    };
     buscarUsuario();
-  }, [])
+  }, []);
 
   return (
-    <>
-    <table>
-    <tbody>
-      <tr>
-        <td>Nome</td>
-        <td>E-mail</td>
-      </tr>
-      {usuarios.map((usuario) =>
-        <tr key={usuario.id}>
-          <td>{usuario.nome}</td>
-          <td>{usuario.email}</td>
-          <button onClick={() => remover(usuario)}>Remover</button>
-        </tr>
-      )}
-      </tbody>
-    </table>
-    </>
+    <div className={styles.container}>
+      <table>
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>E-mail</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          {usuarios.map((usuario) => (
+            <tr key={usuario.id}>
+              <td>{usuario.nome}</td>
+              <td>{usuario.email}</td>
+              <td>
+                <Remover usuario={usuario} />
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 }
