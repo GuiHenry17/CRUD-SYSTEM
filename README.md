@@ -27,17 +27,17 @@
    git clone https://github.com/GuiHenry17/CRUD-SYSTEM.git
   ```
 2. Instale as dependências do cliente e servidor:
-   ```
+```
    cd cliente && npm install
    cd ../servidor && npm install
    ```
 3. Inicie o servidor:
-   ```
+```
    cd servidor
    npm start
    ```
 4. Inicie o cliente:
-   ```
+```
    cd ../cliente
    npm run dev
    ```
