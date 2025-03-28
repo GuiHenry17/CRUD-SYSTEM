@@ -41,9 +41,3 @@
    cd ../cliente
    npm run dev
    ```
-
-
-```
-
-Isso deve cobrir o básico do projeto. Se precisar de mais detalhes ou ajustes, me avise!
-```
